@@ -1,0 +1,59 @@
+body {
+  background-image: url('https://cdn.openart.ai/stable_diffusion/f06998227f1c5882d4f0eed16534f51183409f47_2000x2000.webp');
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .card-content p {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  body {
+    font-size: 16px;
+  }
+
+  .card {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+
+  .card-content p {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+
+  .card {
+    width: 33.33%;
+    margin-bottom: 40px;
+  }
+
+  .card-content p {
+    font-size: 16px;
+  }
+}

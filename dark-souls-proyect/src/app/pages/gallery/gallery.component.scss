@@ -1,0 +1,80 @@
+article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: 0 auto;
+  max-width: 1200px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.card {
+  width: 100%;
+  max-width: 300px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-image: url('https://w0.peakpx.com/wallpaper/310/22/HD-wallpaper-magic-the-gathering-evil-black-demon-dark.jpg');
+  background-size: cover;
+  background-position: center;
+
+  .card-header {
+    padding: 16px;
+    background-image: url('https://t3.ftcdn.net/jpg/02/47/33/04/360_F_247330487_2CdzRl3KcKaz0OiNY1E8C5r1qdZSKBlD.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .card-title {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .card-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 1px solid black;
+    }
+  }
+
+  .card-content {
+    padding: 16px;
+    color: #d3d3d3;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+
+    p {
+      margin: 8px 0;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    width: calc(33.33% - 20px);
+  }
+}

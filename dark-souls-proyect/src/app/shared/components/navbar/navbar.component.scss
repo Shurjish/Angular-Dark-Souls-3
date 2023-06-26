@@ -1,0 +1,45 @@
+.navbar {
+  background-color: #000;
+  color: #fff;
+  // padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    margin-right: 10px;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        padding: 0 10px;
+        font-family: 'Arial', sans-serif;
+        text-transform: uppercase;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #ff0;
+        }
+      }
+
+      &:not(:last-child)::after {
+        content: "|";
+        margin-left: 10px;
+        color: #fff;
+      }
+
+      &.right-align {
+        margin-left: auto;
+      }
+    }
+  }
+}

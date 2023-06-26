@@ -1,0 +1,19 @@
+<article>
+  <div class="card-container">
+    <div *ngFor="let boss of bossList" class="card">
+      <div class="card-header">
+        <h3 class="card-title">{{ boss.name }}</h3>
+      </div>
+      <div class="card-image">
+        <img [src]="boss.image" alt="{{ boss.name }} Image">
+      </div>
+      <div class="card-content">
+        <p>Location: {{ boss.location }}</p>
+        <p>Difficulty: {{ boss.difficulty }}</p>
+        <p>Recommended Level: {{ boss.recommendedLevel }}</p>
+        <p>Weaknesses: {{ boss.weaknesses }}</p>
+        <p>Requirements: {{ boss.requirements }}</p>
+      </div>
+    </div>
+  </div>
+</article>

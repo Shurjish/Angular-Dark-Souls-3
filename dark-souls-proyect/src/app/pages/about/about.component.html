@@ -1,0 +1,12 @@
+<section>
+  <article class="about-article" *ngFor="let article of articles">
+    <div class="image-container">
+      <img [src]="article.imageUrl" alt="About Image">
+    </div>
+    <div class="text-container">
+      <ng-container *ngFor="let paragraph of article.paragraphs">
+        <p>{{ paragraph }}</p>
+      </ng-container>
+    </div>
+  </article>
+</section>

@@ -5,20 +5,20 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  private isAuthenticatedSubject: Subject<boolean> = new Subject<boolean>();
+export class LogoutService {
+  private isLogoutSubject: Subject<boolean> = new Subject<boolean>();
 
-  public isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
+  public isLogout$ = this.isLogoutSubject.asObservable();
 
   constructor(private router: Router) {}
 
-  public setAuthenticated(isAuthenticated: boolean): void {
-    this.isAuthenticatedSubject.next(isAuthenticated);
+  public setLogout(isLogout: boolean): void {
+    this.isLogoutSubject.next(isLogout);
   }
 
   public logout(): void {
     sessionStorage.removeItem('token-app');
-    this.setAuthenticated(false);
+    this.setLogout(false);
     this.router.navigateByUrl('/login').then(() => {
       window.location.reload();
     });

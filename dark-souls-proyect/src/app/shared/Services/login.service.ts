@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { LoginRequest } from 'src/app/pages/login/models/loginRequest.model';
 import { LoginResponse } from './../../pages/login/models/loginResponse.model';
-import { AuthService } from './auth.service';
+import { LogoutService } from './logout.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class LoginService {
 
   constructor(
     private httpClient: HttpClient,
-    private authService: AuthService
+    private logoutService: LogoutService
   ) { }
 
   login(loginRequest: LoginRequest) {
@@ -22,7 +22,7 @@ export class LoginService {
         map((response: LoginResponse) => {
           this.token = response.token;
           sessionStorage.setItem('token-app', response.token);
-          this.authService.setAuthenticated(true);
+          this.logoutService.setLogout(true);
           return response;
         })
       );

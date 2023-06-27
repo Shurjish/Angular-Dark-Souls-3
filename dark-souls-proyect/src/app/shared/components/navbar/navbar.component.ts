@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../Services/auth.service';
+import { LogoutService } from '../../Services/logout.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,11 +9,11 @@ import { AuthService } from '../../Services/auth.service';
 export class NavbarComponent {
   loggedIn: boolean = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: LogoutService) {}
 
   ngOnInit() {
-    this.authService.isAuthenticated$.subscribe((isAuthenticated: boolean) => {
-      this.loggedIn = isAuthenticated;
+    this.authService.isLogout$.subscribe((isLogout: boolean) => {
+      this.loggedIn = isLogout;
     });
   }
 

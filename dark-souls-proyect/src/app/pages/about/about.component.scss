@@ -4,6 +4,7 @@ section {
   gap: 20px;
   margin-top: 50px;
   margin-bottom: 150px;
+  align-items: center;
 }
 
 .about-article {
@@ -13,6 +14,7 @@ section {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 90%;
 }
 
 .about-article .image-container {

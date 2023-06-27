@@ -1,7 +1,7 @@
 .navbar {
   background-color: #000;
   color: #fff;
-  // padding: 10px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,7 +34,7 @@
       &:not(:last-child)::after {
         content: "|";
         margin-left: 10px;
-        color: #fff;
+        color: #bbb4b4;
       }
 
       &.right-align {

@@ -27,10 +27,4 @@ export class LoginService {
         })
       );
   }
-
-  logout() {
-    this.token = null;
-    sessionStorage.removeItem('token-app');
-    this.authService.setAuthenticated(false);
-  }
 }

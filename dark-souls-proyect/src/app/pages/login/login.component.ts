@@ -33,15 +33,4 @@ export class LoginComponent {
       this.loggedIn = true;
     });
   }
-
-  public onLogout() {
-    this.loginService.logout();
-    this.loggedIn = false;
-  }
-
-  public resetForm() {
-    this.username = 'kminchelle';
-    this.password = '0lelplR';
-    this.loggedIn = false;
-  }
 }

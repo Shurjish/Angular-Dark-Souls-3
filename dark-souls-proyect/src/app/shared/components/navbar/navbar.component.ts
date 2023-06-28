@@ -9,15 +9,22 @@ import { LogoutService } from '../../Services/logout.service';
 export class NavbarComponent {
   loggedIn: boolean = false;
 
-  constructor(private authService: LogoutService) {}
+  constructor(private logoutService: LogoutService) {}
 
   ngOnInit() {
-    this.authService.isLogout$.subscribe((isLogout: boolean) => {
+    this.checkLoginStatus();
+
+    this.logoutService.isLogout$.subscribe((isLogout: boolean) => {
       this.loggedIn = isLogout;
     });
   }
 
   onLogout(): void {
-    this.authService.logout();
+    this.logoutService.logout();
+  }
+
+  private checkLoginStatus(): void {
+    const token = sessionStorage.getItem('token-app');
+    this.loggedIn = token !== null;
   }
 }

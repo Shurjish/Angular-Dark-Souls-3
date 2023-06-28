@@ -1,5 +1,6 @@
 import { LoginService } from '../../shared/Services/login.service';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginRequest } from './models/loginRequest.model';
 import { LoginResponse } from './models/loginResponse.model';
 import { LogoutService } from '../../shared/Services/logout.service';
@@ -10,11 +11,19 @@ import { LogoutService } from '../../shared/Services/logout.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  public username: string = 'kminchelle';
-  public password: string = '0lelplR';
+  public loginForm: FormGroup;
   public loggedIn: boolean = false;
 
-  constructor(private loginService: LoginService, private logoutService: LogoutService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private loginService: LoginService,
+    private logoutService: LogoutService
+  ) {
+    this.loginForm = this.formBuilder.group({
+      username: ['kminchelle', Validators.required],
+      password: ['0lelplR', Validators.required]
+    });
+  }
 
   ngOnInit() {
     this.checkLoginStatus();
@@ -27,10 +36,15 @@ export class LoginComponent implements OnInit {
   }
 
   public onSubmit() {
+    if (this.loginForm.invalid) {
+      return;
+    }
+
     const loginRequest: LoginRequest = {
-      username: this.username,
-      password: this.password
+      username: this.loginForm.value.username,
+      password: this.loginForm.value.password
     };
+
     this.login(loginRequest);
   }
 

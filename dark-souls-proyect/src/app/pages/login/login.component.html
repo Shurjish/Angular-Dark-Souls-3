@@ -7,11 +7,11 @@
   </ng-container>
 
   <ng-template #loginForms>
-    <form class="login-form" (ngSubmit)="onSubmit()" #form="ngForm">
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <label for="username">Username</label>
-      <input type="text" name="username" id="username" [(ngModel)]="username">
+      <input type="text" formControlName="username" id="username">
       <label for="password">Password</label>
-      <input type="password" name="password" id="password" [(ngModel)]="password">
+      <input type="password" formControlName="password" id="password">
       <button type="submit">Login</button>
     </form>
   </ng-template>

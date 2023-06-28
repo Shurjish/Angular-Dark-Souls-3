@@ -18,9 +18,7 @@ export class LogoutService {
 
   public logout(): void {
     sessionStorage.removeItem('token-app');
-    this.setLogout(false);
-    this.router.navigateByUrl('/login').then(() => {
-      window.location.reload();
-    });
+    this.setLogout(true);
+    this.router.navigateByUrl('/login');
   }
 }

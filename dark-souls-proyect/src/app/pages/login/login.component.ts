@@ -1,22 +1,27 @@
 import { LoginService } from '../../shared/Services/login.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LoginRequest } from './models/loginRequest.model';
 import { LoginResponse } from './models/loginResponse.model';
+import { LogoutService } from '../../shared/Services/logout.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   public username: string = 'kminchelle';
   public password: string = '0lelplR';
   public loggedIn: boolean = false;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private logoutService: LogoutService) { }
 
   ngOnInit() {
     this.loggedIn = !!this.loginService.token;
+
+    this.logoutService.isLogout$.subscribe((isLogout: boolean) => {
+      this.loggedIn = !isLogout;
+    });
   }
 
   public onSubmit() {

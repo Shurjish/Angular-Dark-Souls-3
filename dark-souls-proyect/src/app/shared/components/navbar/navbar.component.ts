@@ -21,6 +21,7 @@ export class NavbarComponent {
 
   onLogout(): void {
     this.logoutService.logout();
+    this.loggedIn = false;
   }
 
   private checkLoginStatus(): void {

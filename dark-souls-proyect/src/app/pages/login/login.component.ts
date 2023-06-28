@@ -17,10 +17,12 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private logoutService: LogoutService) { }
 
   ngOnInit() {
-    this.loggedIn = !!this.loginService.token;
+    this.checkLoginStatus();
 
     this.logoutService.isLogout$.subscribe((isLogout: boolean) => {
-      this.loggedIn = !isLogout;
+      if (isLogout) {
+        this.loggedIn = false;
+      }
     });
   }
 
@@ -37,5 +39,10 @@ export class LoginComponent implements OnInit {
       console.log(data);
       this.loggedIn = true;
     });
+  }
+
+  private checkLoginStatus(): void {
+    const token = sessionStorage.getItem('token-app');
+    this.loggedIn = token !== null;
   }
 }
